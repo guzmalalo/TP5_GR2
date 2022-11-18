@@ -1,6 +1,3 @@
-//
-// Created by Eduardo Guzman Maldonado on 10/11/2022.
-//
 
 #ifndef TP5_GR2_EXO1_H
 #define TP5_GR2_EXO1_H
@@ -23,8 +20,29 @@ struct NombreRationnel {
  * Lit un nombre rationnel
  * @return
  */
-struct NombreRationnel saisie (void );
+NR saisie (void );
+
+/**
+ * Affiche un nombre rationnel
+ * @param input structure de type NombreRattionnel
+ */
+void affichage(NR input);
 
 
+/**
+ * Multiplication de deux nombre rationnels a et b
+ * @param a Structure de type NombreRationnel
+ * @param b Structure de type NombreRationnel
+ * @return c Résultat de a*b, c'est un NombrRationnel
+ */
+NR multiplication(NR a, NR b);
+
+/**
+ * Addition de deux nombres rationnels a et b
+ * @param a Structure de type NombreRationnel
+ * @param b Structure de type NombreRationnel
+ * @return c Résultat de a+b, c'est un NombrRationnel
+ */
+NR addition(NR a, NR b);
 
 #endif //TP5_GR2_EXO1_H
