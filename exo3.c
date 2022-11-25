@@ -6,41 +6,59 @@ int main (){
     int tab2D[LIN][COL] = {0};
     int tab1D[LIN*COL] = {0};
 
-    int comp =0;
-
     // Remplissage
-    for (int i = 0; i < LIN; ++i) {
-        for (int j = 0; j < COL; ++j) {
-            //message à l'utilisateur
-            printf("Rentrez la valeur [%d][%d] : ", i,j);
-            scanf("%d", &tab2D[i][j]);
-        }
-    }
+    remplissage2D(tab2D);
 
+    // Affichage du tableau 2D
+    affichage2D(tab2D);
+
+    // Transformation
+    transformation(tab2D,tab1D);
+
+    // affichage tableau 1D
+    affichage1D(tab1D);
+
+    return 0;
+}
+
+void affichage2D(int tab[LIN][COL]){
     // Affichage
     for (int i = 0; i < LIN; ++i) {
         for (int j = 0; j < COL; ++j) {
             //message à l'utilisateur
-            printf("%d ", tab2D[i][j] );
+            printf("%d ", tab[i][j] );
         }
         printf("\n");
     }
+}
 
-    // Transformation
-    for (int i = 0; i < LIN; ++i) {
-        for (int j = 0; j < COL; ++j) {
-            tab1D[comp] =  tab2D[i][j];
-            comp++;
-        }
-    }
-
+void affichage1D(int tab[LIN*COL]){
     // Affichage du tableau 1D
     printf("Tableau 1D \n");
     for (int i = 0; i < LIN*COL ; ++i) {
-        printf("%d ", tab1D[i] );
+        printf("%d ", tab[i] );
     }
+}
 
 
+void remplissage2D(int tab[LIN][COL]){
+    for (int i = 0; i < LIN; ++i) {
+        for (int j = 0; j < COL; ++j) {
+            //message à l'utilisateur
+            printf("Rentrez la valeur [%d][%d] : ", i,j);
+            scanf("%d", &tab[i][j]);
+        }
+    }
+}
 
-    return 0;
+
+void transformation(int in[LIN][COL], int out[LIN*COL]){
+    int comp =0;
+
+    for (int i = 0; i < LIN; ++i) {
+        for (int j = 0; j < COL; ++j) {
+            out[comp] =  in[i][j];
+            comp++;
+        }
+    }
 }
