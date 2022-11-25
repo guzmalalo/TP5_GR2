@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "exo2.h"
 
-#define MAX_T 100
 
 int main() {
     // Declaration d'un tableau statique
@@ -13,27 +12,40 @@ int main() {
     int temp;
     int n_max;
 
+    // Taille logique
     do {
         printf("nombre d'entiers à insérer ? ");
         scanf("%d", &n);
     } while (n > MAX_T || n < 0);
 
-    for (int i = 0; i < n; ++i) {
+    // Remplissage tableau
+    remplieTab(tableau, n);
 
+    // Troue la valer max
+    n_max = valMax(tableau, n);
+
+    // Résultat
+    printf("La valuer max est %d ", n_max);
+    return 0;
+}
+
+void remplieTab(int tab[MAX_T], int n){
+
+    for (int i = 0; i < n; ++i) {
         printf("N %d = ", i);
-        scanf("%d", &temp);
-        tableau[i] = temp;
+        scanf("%d", &tab[i]);
     }
 
-    n_max = tableau[0];
+}
+
+int valMax(int tab[MAX_T], int n){
+
+    int n_max = tab[0];
 
     for (int i = 0; i < n; ++i) {
-        if(tableau[i] > n_max){
-            n_max = tableau[i];
+        if(tab[i] > n_max){
+            n_max = tab[i];
         }
     }
 
-    printf("La valuer max est %d ", n_max);
-
-    return 0;
 }
